@@ -1,0 +1,10 @@
+node_modules/
+dist/
+playwright-report/
+.env
+database.js
+database/
+node_modules
+test-results/
+playwright.yml
+*.html
