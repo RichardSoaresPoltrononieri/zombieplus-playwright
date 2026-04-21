@@ -11,16 +11,16 @@ test('não deve logar com senha incorreta', async ({ page }) => {
     await page.login.visit()
     await page.login.submit('admin@zombieplus.com', '000000')
 
-    const message = 'Oops!Ocorreu um erro ao tentar efetuar o login. Por favor, verifique suas credenciais e tente novamente.'
-    await page.toast.containText(message)
+    const message = 'Ocorreu um erro ao tentar efetuar o login. Por favor, verifique suas credenciais e tente novamente.'
+    await page.popup.haveText(message)
 })
 
 test('não deve logar com email incorreto', async ({ page }) => {
     await page.login.visit()
     await page.login.submit('invalid@zombieplus.com', 'pwd123')
 
-    const message = 'Oops!Ocorreu um erro ao tentar efetuar o login. Por favor, verifique suas credenciais e tente novamente.'
-    await page.toast.containText(message) 
+    const message = 'Ocorreu um erro ao tentar efetuar o login. Por favor, verifique suas credenciais e tente novamente.'
+    await page.popup.haveText(message) 
 })
 
 test('não deve logar com email invalido', async ({ page }) => {
