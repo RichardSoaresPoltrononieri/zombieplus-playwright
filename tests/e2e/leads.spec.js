@@ -1,4 +1,3 @@
-// @ts-nocheck
 const { test, expect } = require ('../support')
 const { faker } = require('@faker-js/faker')
 

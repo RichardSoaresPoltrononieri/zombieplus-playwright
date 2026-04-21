@@ -1,4 +1,4 @@
-const { test, expect } = require ('../support')
+const { test } = require ('../support')
 const data = require('../support/fixtures/movies.json')
 
 const { executeSql } = require('../support/fixtures/database')

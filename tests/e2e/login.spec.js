@@ -1,5 +1,4 @@
 const { test, expect } = require ('../support')
-const { Toast } = require('../actions/Components')
 
 
 test('deve logar como administrador', async ({ page }) => {
