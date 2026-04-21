@@ -4,7 +4,7 @@ const { Leads } = require('./actions/Leads')
 const { Login } = require('./actions/Login')
 const { Toast } = require('./actions/Components')
 const { Movies } = require('./actions/Movies')
-
+const { Api } = require('./api')
 
 const test = base.extend({
     page: async ({ page }, use) => {
@@ -16,7 +16,16 @@ const test = base.extend({
         context['movies'] = new Movies(page)
 
         await use(context)
+    },
+
+    request: async ({ request }, use) => {
+        const context = request
+
+        context['api'] = new Api(request)
+        await use(context)
+        
     }
+
 })
 
 module.exports = { test, expect }

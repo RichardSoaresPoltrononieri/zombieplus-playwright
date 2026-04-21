@@ -6,9 +6,9 @@ export class Login {
     }
 
     async do (email, password, username) {
-        this.visit()
-        this.submit(email, password)
-        this.isLoggedIn(username)
+        await this.visit()
+        await this.submit(email, password)
+        await this.isLoggedIn(username)
     }
 
     async visit() {
@@ -33,7 +33,4 @@ export class Login {
         const loggedUser = this.page.locator('.logged-user')
         await expect(loggedUser).toHaveText(`Olá, ${username}`)
     }
-
-
-    
 }
