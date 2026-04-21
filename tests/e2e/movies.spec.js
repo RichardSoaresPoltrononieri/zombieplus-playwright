@@ -1,20 +1,8 @@
-const { test } = require ('@playwright/test')
+const { test, expect } = require ('../support')
 const data = require('../support/fixtures/movies.json')
-const { LoginPage } = require('../pages/LoginPage')
-const { Toast } = require('../pages/Components')
-const { MoviesPage } = require('../pages/MoviesPage')
 
 const { executeSql } = require('../support/fixtures/database')
 
-let loginPage
-let toast
-let moviesPage
-
-test.beforeEach(({ page }) => {
-    loginPage = new LoginPage(page)
-    toast = new Toast(page)
-    moviesPage = new MoviesPage(page)
-})
 
 
 test('deve cadastrar um novo filme', async ({ page }) => {
@@ -22,22 +10,38 @@ test('deve cadastrar um novo filme', async ({ page }) => {
 
     await executeSql(`DELETE FROM movies WHERE title = '${movie.title}';`)
 
-    await loginPage.visit()
-    await loginPage.submit('admin@zombieplus.com', 'pwd123')
-    await moviesPage.isLoggedIn()
+    await page.login.visit()
+    await page.login.submit('admin@zombieplus.com', 'pwd123')
+    await page.login.isLoggedIn()
 
-    await moviesPage.create(movie.title, movie.overview, movie.company, movie.release_year)
+    await page.movies.create(movie.title, movie.overview, movie.company, movie.release_year)
 
-    await toast.containText('UhullCadastro realizado com sucesso!')
+    await page.toast.containText('UhullCadastro realizado com sucesso!')
 })
 
 test('não deve cadastrar um filme já existente', async ({ page }) => {
     const movie = data.create
 
-    await loginPage.visit()
-    await loginPage.submit('admin@zombieplus.com', 'pwd123')
-    await moviesPage.isLoggedIn()
+    await page.login.visit()
+    await page.login.submit('admin@zombieplus.com', 'pwd123')
+    await page.login.isLoggedIn()
 
-    await moviesPage.create(movie.title, movie.overview, movie.company, movie.release_year)
-    await toast.containText('Oops!Este conteúdo já encontra-se cadastrado no catálogo')
+    await page.movies.create(movie.title, movie.overview, movie.company, movie.release_year)
+    await page.toast.containText('Oops!Este conteúdo já encontra-se cadastrado no catálogo')
+})
+
+test('não deve cadastrar quando os campos obrigatórios não são preenchidos', async ({ page }) => {
+
+    await page.login.visit()
+    await page.login.submit('admin@zombieplus.com', 'pwd123')
+    await page.login.isLoggedIn()
+
+    await page.movies.goForm()
+    await page.movies.submit()
+    await page.movies.alertHaveText([
+        'Por favor, informe o título.',
+        'Por favor, informe a sinopse.',
+        'Por favor, informe a empresa distribuidora.',
+        'Por favor, informe o ano de lançamento.'
+    ])
 })
