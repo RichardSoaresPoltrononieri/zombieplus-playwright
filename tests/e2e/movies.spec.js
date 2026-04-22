@@ -60,6 +60,5 @@ test('deve pesquisar por zumbi', async ({ page, request }) => {
     // const rows = page.getByRole('row').filter()    
     // await expect(rows).toHaveCount(movies.outputs.length)
 
-    const rows = page.getByRole('row')
-    await expect(rows).toContainText(movies.outputs)
+    await page.movies.tableHave(movies.outputs)
 })
