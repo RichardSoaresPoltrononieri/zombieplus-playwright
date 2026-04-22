@@ -15,68 +15,43 @@
     "featured": false,
     "cover": "/covers/movies/exterminio.jpg"
   },
-  "exterminio_2": {
+  "to_remove": {
     "title": "Extermínio 2",
     "overview": "Meses após o surto inicial, o vírus retorna e espalha o caos novamente entre os sobreviventes.",
     "release_year": 2007,
-    "company": "20th Century Fox",
+    "company": "Netflix",
     "featured": false,
-    "cover": "/images/exterminio_2.jpg"
+    "cover": "/covers/movies/opz.jpg"
   },
-  "madrugada_dos_mortos": {
-    "title": "Madrugada dos Mortos",
-    "overview": "Sobreviventes se refugiam em um shopping center enquanto tentam escapar de hordas de zumbis famintos.",
-    "release_year": 2004,
-    "company": "Universal Pictures",
-    "featured": false,
-    "cover": "/images/madrugada_dos_mortos.jpg"
-  },
-  "todo_mundo_quase_morto": {
-    "title": "Todo Mundo Quase Morto",
-    "overview": "Um homem comum tenta sobreviver a um apocalipse zumbi com humor e improviso.",
-    "release_year": 2004,
-    "company": "Rogue Pictures",
-    "featured": false,
-    "cover": "/images/todo_mundo_quase_morto.jpg"
-  },
-  "zumbilandia": {
-    "title": "Zumbilândia",
-    "overview": "Um grupo improvável de sobreviventes cruza os Estados Unidos enfrentando zumbis e criando regras para sobreviver.",
-    "release_year": 2009,
-    "company": "Columbia Pictures",
-    "featured": false,
-    "cover": "/images/zumbilandia.jpg"
-  },
-  "zumbilandia_atire_duas_vezes": {
-    "title": "Zumbilândia: Atire Duas Vezes",
-    "overview": "Os sobreviventes continuam sua jornada enfrentando novos tipos de zumbis e desafios.",
-    "release_year": 2019,
-    "company": "Sony Pictures",
-    "featured": false,
-    "cover": "/images/zumbilandia_2.jpg"
-  },
-  "rec": {
-    "title": "Rec",
-    "overview": "Uma repórter e sua equipe ficam presos em um prédio enquanto uma infecção transforma moradores em criaturas violentas.",
-    "release_year": 2007,
-    "company": "Filmax",
-    "featured": false,
-    "cover": "/images/rec.jpg"
-  },
-  "invasao_zumbi": {
-    "title": "Invasão Zumbi",
-    "overview": "Um surto zumbi se espalha rapidamente dentro de um trem em movimento, colocando passageiros em uma luta pela sobrevivência.",
-    "release_year": 2016,
-    "company": "Next Entertainment World",
-    "featured": false,
-    "cover": "/images/invasao_zumbi.jpg"
-  },
-  "a_noite_dos_mortos_vivos": {
-    "title": "A Noite dos Mortos-Vivos",
-    "overview": "Um grupo de pessoas se refugia em uma casa enquanto mortos-vivos começam a se levantar e atacar os vivos.",
-    "release_year": 1968,
-    "company": "Continental Distributing",
-    "featured": false,
-    "cover": "/images/noite_dos_mortos_vivos.jpg"
+  "search": {
+    "input": "zumbi",
+    "outputs":
+    ["Invasão Zumbi", "Orgulho, Preconceito e Zumbis", "Zumbilândia: Atire Duas Vezes"],
+    "data": [
+      {
+        "title": "Invasão Zumbi",
+        "overview": "Um surto zumbi se espalha rapidamente dentro de um trem em movimento, colocando passageiros em uma luta pela sobrevivência.",
+        "release_year": 2016,
+        "company": "Netflix",
+        "featured": false,
+        "cover": "/covers/movies/dead-snow.jpg"
+      },
+      {
+        "title": "Orgulho, Preconceito e Zumbis",
+        "overview": "Um grupo improvável de sobreviventes cruza os Estados Unidos enfrentando zumbis e criando regras para sobreviver.",
+        "release_year": 2009,
+        "company": "Columbia Pictures",
+        "featured": false,
+        "cover": "/covers/movies/opz.jpg"
+      },
+      {
+        "title": "Zumbilândia: Atire Duas Vezes",
+        "overview": "Os sobreviventes continuam sua jornada enfrentando novos tipos de zumbis e desafios.",
+        "release_year": 2019,
+        "company": "Fox Entertainment",
+        "featured": false,
+        "cover": "/covers/movies/zumbilandia.jpg"
+      }
+    ]
   }
 }

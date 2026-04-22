@@ -1,4 +1,4 @@
-const { expect } = require ('@playwright/test');
+const { expect } = require('@playwright/test');
 
 export class Movies {
 
@@ -6,11 +6,11 @@ export class Movies {
         this.page = page;
     }
 
-    async goForm () {
+    async goForm() {
         await this.page.locator('a[href$="register"]').click()
     }
 
-    async submit () {
+    async submit() {
         await this.page.getByRole('button', { name: 'Cadastrar' }).click()
     }
 
@@ -29,7 +29,7 @@ export class Movies {
 
         await this.page.locator('#select_year .react-select__indicator')
             .click()
-        
+
         await this.page.locator('.react-select__option')
             .filter({ hasText: movie.release_year })
             .click()
@@ -38,13 +38,24 @@ export class Movies {
             .setInputFiles('tests/support/fixtures' + movie.cover)
 
         if (movie.featured) {
-            await this.page.locator('.featured .react-switch').click()    
+            await this.page.locator('.featured .react-switch').click()
         }
-            
+
         await this.submit()
     }
 
-        async alertHaveText(target) {
-        await expect(this.page.locator('.alert')).toHaveText(target); 
+    async search(target) {
+        await this.page.getByPlaceholder('Busque pelo nome')
+        .fill(target)
+        await this.page.click('.actions button')
+    }
+
+    async alertHaveText(target) {
+        await expect(this.page.locator('.alert')).toHaveText(target);
+    }
+
+    async remove(title) {
+        await this.page.getByRole('row', { name: title }).getByRole('button').click()
+        await this.page.click('.confirm-removal')
     }
 }   
